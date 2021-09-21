@@ -1,0 +1,81 @@
+<html>
+
+<head>
+    <title>Wedding</title>
+
+    <script src="jquery.min.js"></script>
+
+    <style type="text/css">
+        #header {
+            width: 2000px;
+            height: 250px; 
+            position:absolute
+
+        }
+        body {
+            background-color: white;
+            background-image: url("images/stars.jpg");
+            padding: 0;
+            margin: 0;
+        }
+
+        .sample {
+            height: 500px;
+        }
+        #coverPage {
+            width: 1600px;
+            height: 850px;
+            background-color: white;
+            position: relative;
+            padding: 0;
+            margin: 0;
+        }
+        #musicButton {
+            position: relative;
+            background-color: darkgrey;
+            width: 100px;
+            height: 50px;
+            bottom: -425px;
+            left: 800px;
+            opacity: 1 !important;
+             
+        }
+        .seethru {
+            opacity: 0.3;
+        }
+
+        .remove {
+            display: none;
+        }
+    
+    </style>
+</head>
+
+<body>
+    
+    <div id="coverPage" class="seethru">
+        <button id="musicButton" class="">Enter</button>
+        <audio class="my_audio" controls preload="auto">
+            <source src="music/Let's Get Married.mp3" type="audio/mpeg">
+            <source src="music/Let's Get Married.mp3" type="audio/ogg">
+        </audio>
+</div>
+
+
+
+    <script>
+        
+        var audio = $(".my_audio");
+        audio.volume = 0.2;
+        
+        $("#musicButton").click( function() {
+            $(".my_audio").get(0).play();
+            $("#musicButton").addClass("remove")
+            $("#coverPage").removeClass("seethru")
+        })
+        
+
+    </script>
+</body>
+
+</html>
