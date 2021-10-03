@@ -1,0 +1,424 @@
+<html>
+
+<head>
+    <title>Wedding</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <script src="jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+    integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-firestore.js"></script>
+  <script>
+    const config = {
+      apiKey: "AIzaSyCzoAaqfOHd-wZh39mK4_7D7s7vXebpNJM",
+      authDomain: "joe-wedding-dfabf.firebaseapp.com",
+      projectId: "joe-wedding-dfabf",
+      storageBucket: "joe-wedding-dfabf.appspot.com",
+      messagingSenderId: "428454412587",
+      appId: "1:428454412587:web:65c06692dee556816d056e"
+    };
+    firebase.initializeApp(config);
+  </script>
+
+    <style type="text/css">
+        #header {
+            width: 2000px;
+            height: 250px; 
+            position:absolute
+
+        }
+        body {
+            background-color: white;
+            background-image: url("images/Background-green.jpg");
+            padding: 0;
+            margin: 0;
+        }
+
+        .sample {
+            height: 500px;
+        }
+        #coverPage {
+            background-color: rgba(255,255,255,0.3);
+            position: relative;
+            padding: 0;
+            margin: 0;
+        }
+        #pageContent {
+            height: 1000px;
+        }
+        #musicButton {
+            background-color: white;
+            width: 100px;
+            height: 50px;
+             
+        }
+        /* .hide {
+            display: none;
+        } */
+        /* #bride {
+            background-color: rgba(245, 245, 245, 0.301);
+
+        }
+        #groom{
+            background-color: rgba(245, 245, 245, 0.301);
+            
+        } */
+        .about  {
+            position: relative;
+            
+        }
+        .background {
+            background-color: rgba(245, 245, 245, 0.301);
+        }
+        .navtext {
+            text-decoration: none;
+            color: black;
+            font-size: large;
+            font-weight: bold;
+
+        }
+        .center{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .box{
+            width: 18px;
+            height: 18px;
+            box-sizing: border-box;
+            border-style: solid;
+            border-width: 15px 0px 15px 25px;
+            border-color: transparent transparent transparent black;
+            transition: all 100ms ease-in-out;
+        }
+
+        .pause{
+            height: 25px;
+            border-style: double;
+            border-width:0px 0px 0px 20px;
+        }
+        #weddingSlider {
+            background-color: rgb(245, 245, 245);
+            width: 1015px;
+           
+        }
+        .borders {
+            border:white;
+            border-width: 5px;
+        }
+    
+    </style>
+</head>
+
+<body>
+    <!-- Opening page for the site to fade out after clicking button -->
+    <div class="container-fluid p-0">
+        <div id="coverPage" class="seethru w-100 h-100">
+            <button id="musicButton" class="opacity-100 position-absolute top-50 start-50">Begin</button>
+            <audio id= "audio"class="my_audio mt-5" controls preload="auto">
+                <source src="music/Let's Get Married.mp3" type="audio/mpeg">
+                <source src="music/Let's Get Married.mp3" type="audio/ogg">
+            </audio>
+            <audio id="coin" preload="auto">
+                <source src="music/mario_coin_sound.mp3" type="audio/mpeg">
+                <source src="music/Let's Get Married.mp3" type="audio/ogg">
+            </audio>
+        </div>
+        <!-- Inner contents of the webpage -->
+    <div id="pageContent" class="hide">
+        <!-- Navbar for top of the page -->
+        <nav class="navbar fixed-top navbar-light bg-light d-flex justify-content-center">
+            <div class="containter-fluid ">
+                <div id="play" class="box center pause position-absolute start-0 ms-4"></div>
+                <ul class="nav">
+                    <li class="nav-item me-4">
+                        <a href="#" class="navtext"> HOME</a> </li>
+                    <li class="nav-item me-4"> 
+                        <a href="#US" class="navtext">US</a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a href="#story" class="navtext">Story</a> 
+                    </li>
+                    <li class="nav-item me-4"> 
+                        <a href="#FAQ" class="navtext">FAQ</a> 
+                    </li>
+                    <li class="nav-item me-4"> 
+                        <a href="#comments" class="navtext">Comments</a> 
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!--Announcment Jumbotron top of page-->
+        <div class="w-auto h-50 mt-5" style="background-color: rgba(169, 169, 169, 0.301);">
+            <h1 class="text-center text-white">We did the Thing!</h1>
+            <p class="text-center text-muted">Marrige that is</p>
+        </div>
+        <!-- Explaination on what we did and why-->
+        <div class="row m-0">
+            <div class="offset-md-3 col-md-6 mt-2" >
+        <div class="text-white border border-3 border-white mb-4" >
+            <h2 class="text-center">And no one was invited!</h2>
+            <p class="text-center">On "TBD" we decided to head to the courthouse and get this thing overwith.</p>
+            <p class="text-center"> We all knew it was coming so why wait any longer?</p>
+            <p class="text-center"> We didn't want to have people plan their days around us so we just did it for ourselves!</p>
+        </div>
+            </div>
+        </div>
+        <!-- Bride and Groom section about eaach other -->
+        <div id="US"class="row d-flex justify-content-center m-0 ">
+            <div id= "bride" class="about col-md-4 border border-3 border-white">
+                <div class="m-4 text-white">
+                    <h1 class="text-center">About the Bride</h1>
+                    <p>Here is some information about the lady. She likes dogs and baking but also likes ot do nothing at times</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+            </div>
+            <div id= "groom" class=" about border border-3 border-white col-md-4 " style="background-color: rgba(211, 211, 211, 0.301);">
+                <div class="m-4 text-white">
+                    <h1 class="text-center">About the Groom</h1>
+                    <p>Let me tell you about this guy Joe.</p>
+                   
+                    <p>There's not too much to say really. He works in IT which means he can probably fix your computer
+                        even though he doesn't necissarily want to. If he had it his way he would spend most of his time playing/streaming video games to 
+                        his incrediable audience of no one. He's rather quiet when it comes to conversastion but if you heard what he was saying in his head you 
+                        would think otherwise. He also made this website so please keep comments to a minimun or he'll obsess on trying to get it fixed</p>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- Picture slider for photographer photos-->
+        <div id="weddingSlider" class=" carousel slide carousel-fade offset-md-2 col-md-8 mt-4 mb-2" data-bs-ride="carousel">
+            <div class="carousel-inner col-md-8">
+              <div class="carousel-item active weddingPicures">
+                <img src="images/lake.jpg" class="d-block " alt="...">
+              </div>
+              <div class="carousel-item weddingPicures">
+                <img src="images/grey-leaves.jpg" class="d-block " alt="...">
+              </div>
+              <div class="carousel-item weddingPicures">
+                <img src="images/hills.jpg" class="d-block " alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#weddingSlider" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#weddingSlider" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+
+          <!-- Our Story and how we came to be  -->
+        <div class="row p-0 m-0">
+            <div id="story" class="border border-3 border-white p-4 offset-md-2 col-md-8 mt-4 ">
+                <div class="m-4 text-white">
+                    <h1 class="text-center">Our Story or something like that</h1>
+                    <p>It started with a text.</p>
+                      <p>While both at a sleep over with friends around Christmas time in 2011 with people we mostly no longer talk to 
+                        (hi people we don’t talk to, nice to see you’re doing well) one prank phone call led to another which then resulted
+                        in us exchanging numbers. Since that night we have never been out of contact for more than a few days. </p>
+                        <br>
+                        <p>After nearly 10 years of being together and experiencing the ups and downs of going through a 
+                            relationship: graduating high school, college, first jobs and apartments, moving to a different state,
+                             moving BACK, buying a first home and our biggest test yet - getting a dog 
+                             <a id="yosh" href="#" data-bs-toggle="modal" data-bs-target="#yoshModal" class="text-white">(see Yoshi)</a>
+                             we decided it was time to seal the deal. </p>
+                        <br>                      
+                        <p>As neither of us are big on being in the spotlight, we always knew we would likely elope
+                             at a courthouse just the two of us and keep things simple. 
+                             (Also can we talk about how insane weddings actually are? 
+                             Why should WE throw a party for YOU to celebrate US? Okay- not the time
+                              but I really think we should evaluate this) </p>
+                        <br>
+                        <p>In the interest of not being totally hated by family and friends for not involving 
+                            them in our day we had some pictures taken to capture to commemorate it..</p>
+                </div>
+            </div>
+        </div>
+<!-- Modal -->
+<div class="modal fade" id="yoshModal" tabindex="-1" aria-labelledby="yoshModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img src="images/leaves.jpg" style="width: 400px; height: 400px;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+        
+
+
+        <!-- FAQ section -->
+        <div class="row m-0">
+            <div id="FAQ" class=" p-4 offset-md-2 col-md-8 mt-4 border border-3 border-white">
+                <div class="m-4 text-white">
+                    <h1 class="text-center">F.A.Q</h1>
+                    <p>Q: Are you changing your name?</p>
+                    <p>A: Hell no Sinatra is cool </p>
+                    <br>
+                    <p>Q: Where are you registered?</p>
+                    <p>A: Nowhere! We have too much stuff already but if you feel like you need to get us something you have our address </p>
+                    <br>
+                    <p>Q: Is there a reception?</p>
+                    <p>A: Maybe some day, we'll get back to you on that one </p>
+                </div>
+            </div>
+        </div>
+        <!-- Area for people to add comments about the announcement -->
+        <div id="form"class="row m-0">
+            <form onsubmit="return submitPost()" class="p-0">
+            <div class="p-0 offset-md-2 col-md-8 mt-4 border border-3 border-white">
+                <h2 class="text-center text-white">Leave a comment</h2>
+                <div class="row mb-3">
+                    <div class="offset-md-3 col-md-3">
+                        <input id="Name" type="text" class="form-control" placeholder="Your Name">
+                    </div>
+                    
+                </div>
+                <div class="row m-0">
+                    <div class="offset-md-3 col-md-6 mb-4">
+                        <div class=" form-floating ">
+                            <textarea class="form-control" name="Comment" id="Comment" style="resize: none;height: 100px;"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="offset-md-3 mb-3">
+                    <button id="submitComment" type="submit" class="btn btn-primary ms-1">Submit Comment</button>
+                </div>
+            </form>
+                <div class="row">
+                    <div class=" card mb-4 d-flex justify-content-center offset-md-3 col-md-6">
+                        <div id="commentArea" class="card-body">
+                            <div class="container ">
+                                <div class="messages card-body"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        //Audio set up for begin button on the cover page
+       var audio =  document.getElementById("audio");
+       audio.volume = 0.1;
+       var coin = document.getElementById("coin");
+       coin.volume = 0.1;
+        
+        $("#musicButton").click( function() {
+            $("#coin").get(0).play();
+            $(".my_audio").get(0).play();
+            $("#coverPage").fadeOut(4000, function() {
+                $("#pageContent").fadeIn(3000);
+            });
+        });
+        $("#play").click(function() {
+            $(this).toggleClass("pause")
+        })
+
+        var isplaying = document.getElementById("audio")
+        isplaying = true
+
+        $("#play").click( function() {
+            if (isplaying == true) {
+                isplaying = false
+                document.getElementById("audio").pause();
+            }else {
+                isplaying = true
+                document.getElementById("audio").play();
+            }
+        })
+        //End audio button functions
+
+        //Setup playlist for additional songs on the site
+        var nextSong = [
+        "music/The Book of Love.mp3",
+        "music/It Must Be Love.mp3",
+        "music/Let's Get Married.mp3"
+        ]
+        var i = 0
+        var Player = document.getElementById("audio")
+        Player.onended = function() {
+            if (i < nextSong.length) {
+                Player.src = nextSong[i]; Player.play();
+                ++i
+            }else{
+                i=0
+            }
+        }
+        //End playlist section
+
+        $("#yosh").on("click", function(e) {
+            e.preventDefault();
+            $("#yoshModal").modal("toggle");
+        })
+    </script>
+
+    <script>
+        const firestore = firebase.firestore();
+        const settings = {/* your settings... */ timestampsInSnapshots: true };
+        firestore.settings(settings);
+        const db = firebase.firestore();
+    
+        db.collection('messages')
+          .onSnapshot((snap) => {
+            const messages = snap.docs.map(d => ({
+              id: d.id,
+              ...d.data(),
+            }));
+    
+            // Clear any existing messages
+            $('.messages').empty();
+    
+            // Loop over messges and create one "post" per message.
+            var html = '';
+            messages.forEach((m) => {
+              html += `
+                <div class="post rounded">
+                  <div>${m.author || 'An anonymous person '} ${moment(m.sentDate.toDate()).format('MM/DD/YYYY')}:</div>
+                  <div class="mb-4">${m.message}</div>
+                </div>
+              `;
+            });
+    
+            // Push html
+            $('.messages').html(html);
+          });
+          function submitPost() {
+        const author = $('#Name').val();
+        const message =$('#Comment').val();
+
+        db.collection('messages')
+          .add({
+            author,
+            message,
+            sentDate: new Date()
+          });
+
+        $('#Name').val('');
+        $('#Comment').val('');
+        alert('Thanks for the comment!');
+        return false;
+      }
+      </script>
+</body>
+
+</html>
