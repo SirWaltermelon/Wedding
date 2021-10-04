@@ -4,6 +4,9 @@
     <title>Wedding</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=PT+Sans+Narrow&display=swap" rel="stylesheet">
 
     <script src="jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
@@ -35,6 +38,15 @@
             background-image: url("images/Background-green.jpg");
             padding: 0;
             margin: 0;
+        }
+        p {
+            font-family: 'PT Sans Narrow', sans-serif;
+        }
+        .navfont {
+            font-family: 'PT Sans Narrow', sans-serif;
+        }
+        h1, h2 {
+            font-family: 'Allura', cursive;
         }
 
         .sample {
@@ -119,7 +131,9 @@
     <!-- Opening page for the site to fade out after clicking button -->
     <div class="container-fluid p-0">
         <div id="coverPage" class="seethru w-100 h-100">
-            <button id="musicButton" class="opacity-100 position-absolute top-50 start-50">Begin</button>
+            <div class="d-flex justify-content-center">
+            <button id="musicButton" class="opacity-100 position-absolute top-50">Begin</button>
+            </div>  
             <audio id= "audio"class="my_audio mt-5" controls preload="auto">
                 <source src="music/Let's Get Married.mp3" type="audio/mpeg">
                 <source src="music/Let's Get Married.mp3" type="audio/ogg">
@@ -135,7 +149,7 @@
         <nav class="navbar fixed-top navbar-light bg-light d-flex justify-content-center">
             <div class="containter-fluid ">
                 <div id="play" class="box center pause position-absolute start-0 ms-4"></div>
-                <ul class="nav">
+                <ul class="nav navfont">
                     <li class="nav-item me-4">
                         <a href="#" class="navtext"> HOME</a> </li>
                     <li class="nav-item me-4"> 
@@ -149,6 +163,9 @@
                     </li>
                     <li class="nav-item me-4"> 
                         <a href="#comments" class="navtext">Comments</a> 
+                    </li>
+                    <li class="nav-item me-4">
+                        <a href="gallery.html" class="navtext">Gallery</a>
                     </li>
                 </ul>
             </div>
@@ -183,7 +200,7 @@
             <div id= "bride" class="about col-md-4 border border-3 border-white">
                 <div class="m-4 text-white">
                     <h1 class="text-center">About the Bride</h1>
-                    <p>So there's this girl Jessica</p>
+                    <p>So there's this lady Jessica</p>
                     <p> She's an accomplished at home baker, brunch aficionado, and part time dog walker (not currently taking on new clients)
                         She enjoys saying she likes to spend time outdoor when really she's only interested if it involves craft beer and a nice patio (bonus points 
                         if there are snacks). Sometimes she has false confidence and convinces herself to run half marathons but most days shes's happy doing nothing at all.
