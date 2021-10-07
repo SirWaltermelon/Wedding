@@ -69,17 +69,9 @@
             height: 50px;
              
         }
-        /* .hide {
+        .hide {
             display: none;
-        } */
-        /* #bride {
-            background-color: rgba(245, 245, 245, 0.301);
-
         }
-        #groom{
-            background-color: rgba(245, 245, 245, 0.301);
-            
-        } */
         .about  {
             position: relative;
             
@@ -116,11 +108,6 @@
             border-style: double;
             border-width:0px 0px 0px 20px;
         }
-        /* #weddingSlider {
-            background-color: rgb(245, 245, 245);
-            width: 1015px;
-           
-        } */
         .borders {
             border:white;
             border-width: 5px;
@@ -132,7 +119,7 @@
 <body>
     <!-- Opening page for the site to fade out after clicking button -->
     <div class="container-fluid p-0">
-        <div id="coverPage" class="seethru w-100 h-100">
+        <div id="coverPage" class=" w-100 h-100">
             <div class="d-flex justify-content-center">
             <button id="musicButton" class="opacity-100 position-absolute top-50">Begin</button>
             </div>  
@@ -153,9 +140,9 @@
                 <div id="play" class="box center pause position-absolute start-0 ms-4"></div>
                 <ul class="nav navfont">
                     <li class="nav-item me-4">
-                        <a href="#" class="navtext"> HOME</a> </li>
+                        <a href="#" class="navtext"> Home</a> </li>
                     <li class="nav-item me-4"> 
-                        <a href="#US" class="navtext">US</a>
+                        <a href="#US" class="navtext">Us</a>
                     </li>
                     <li class="nav-item me-4">
                         <a href="#story" class="navtext">Story</a> 
@@ -181,13 +168,13 @@
         <div class="row m-0">
             <div class="offset-md-3 col-md-6 mt-2" >
         <div class="text-white border border-3 border-white mb-4" >
-            <h2 class="text-center">And no one was invited! <br> (Nope, not even you). <br> No family, friends, or doggos to be seen.</h2>
-            <p class="text-center">On October 1st 2021 we decided to head to a courthouse in lovely Barberton, OH and were pronounced husband and wife (shout-out to Judge Todd Mckinney).</p>
+            <h2 class="text-center">And no one was invited! <br> (Nope, not even you) <br> No family, friends, or doggos to be seen.</h2>
+            <p class="text-center">On October 1st 2021 we decided to head to a courthouse in lovely Barberton, OH and were pronounced husband and wife (shout-out to Judge Todd Mckinney)</p>
             <p class="text-center"> We didn't want to have people plan their days around us so we just did it for ourselves!</p>
         </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row m-0">
             <div class="offset-md-3 col-md-6 mt-2">
                 <div class="text-white border border-3 border-white mb-4">
                     <h2 class="text-center">How did we celebrate?</h2>
@@ -350,6 +337,15 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 
     <script type="text/javascript">
+
+        //Set up local session storage
+        if (sessionStorage.getItem("introPlayed")=="true") {
+            $("#coverPage").addClass("hide")
+            $("#pageContent").fadeIn(2000)
+        }else {
+            sessionStorage.setItem("introPlayed", "false")
+        }
+        
         //Audio set up for begin button on the cover page
        var audio =  document.getElementById("audio");
        audio.volume = 0.1;
@@ -362,6 +358,7 @@
             $("#coverPage").fadeOut(4000, function() {
                 $("#pageContent").fadeIn(3000);
             });
+            sessionStorage.setItem("introPlayed", "true");
         });
         $("#play").click(function() {
             $(this).toggleClass("pause")
