@@ -1,12 +1,15 @@
 <html>
 
 <head>
-    <title>Wedding</title>
+    <title>We did the Thing!</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Allura&family=PT+Sans+Narrow&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="lightbox2-2.11.3/dist/css/lightbox.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
 
     <script src="jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
@@ -32,6 +35,11 @@
             height: 250px; 
             position:absolute
 
+        }
+        #title {
+            background-image: url("images/Title/Jessica&Joe-59.jpg");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
         }
         body {
             background-color: white;
@@ -62,6 +70,7 @@
         }
         #pageContent {
             height: 1000px;
+        
         }
         #musicButton {
             background-color: white;
@@ -112,6 +121,25 @@
             border:white;
             border-width: 5px;
         }
+        .Q {
+            font-weight: bolder;
+        }
+        .weddingPictures {
+            width: 558px;
+            object-fit: contain;
+        }
+        #bride {
+            background-image: url("images/B-G/Jessica&Joe-84.jpg");
+            background-blend-mode: lighten;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        #groom {
+            background-image: url("images/B-G/Jessica&Joe-253.jpg");
+            background-blend-mode: lighten;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
     
     </style>
 </head>
@@ -121,7 +149,7 @@
     <div class="container-fluid p-0">
         <div id="coverPage" class=" w-100 h-100">
             <div class="d-flex justify-content-center">
-            <button id="musicButton" class="opacity-100 position-absolute top-50">Begin</button>
+            <button id="musicButton" class="opacity-100 position-absolute top-50">Enter</button>
             </div>  
             <audio id= "audio"class="my_audio mt-5" controls preload="auto">
                 <source src="music/Let's Get Married.mp3" type="audio/mpeg">
@@ -160,7 +188,7 @@
             </div>
         </nav>
         <!--Announcment Jumbotron top of page-->
-        <div class="w-auto h-50 mt-5" style="background-color: rgba(169, 169, 169, 0.301);">
+        <div id="title" class="h-75   mt-5 ">
             <h1 class="text-center text-white">We did the Thing!</h1>
             <p class="text-center text-muted">(Marriage, the thing is marriage. We got married.)</p>
         </div>
@@ -178,15 +206,22 @@
             <div class="offset-md-3 col-md-6 mt-2">
                 <div class="text-white border border-3 border-white mb-4">
                     <h2 class="text-center">How did we celebrate?</h2>
-                    <p class="text-center">By going to a Glass Animals concert!</p>
-                    <img class="d-flex justify-content-center col-sm-12" src="images/Glass Animals.png" alt="">
+                    <h3 class="text-center">Well, first we got a beer</h3>
+                    
+                    <img class="d-flex justify-content-center col-12" src="images/B-G/Jessica&Joe-294.jpg" alt="">
+                    <br>
+                    <h3 class="text-center">And then we went to a Glass Animals concert!</h3>
+                    <div class="row mt-2">
+                    <img class="d-flex justify-content-center col-sm-6 pe-0" src="images/Glass Animals.png" alt="">
+                    <img class="d-flex justify-content-center col-sm-6 ps-0" src="images/B-G/image0.jpeg" alt="">
+                </div>
                 </div>
             </div>
         </div>
-        <!-- Bride and Groom section about eaach other -->
+        <!-- Bride and Groom section about each other -->
         <div id="US"class="row d-flex justify-content-center m-0 ">
             <div id= "bride" class="about col-md-4 border border-3 border-white">
-                <div class="m-4 text-white">
+                <div class="m-4 text-white ">
                     <h1 class="text-center">About the Bride</h1>
                     <p>So there's this lady named Jessica</p>
                     <p> She's an accomplished at home baker, brunch aficionado, and part time dog walker (not currently taking on new clients).
@@ -197,7 +232,7 @@
                 </div>
             </div>
             <div id= "groom" class=" about border border-3 border-white col-md-4 " style="background-color: rgba(211, 211, 211, 0.301);">
-                <div class="m-4 text-white">
+                <div class="m-4 ">
                     <h1 class="text-center">About the Groom</h1>
                     <p>Let me tell you about this guy Joe.</p>
                    
@@ -210,17 +245,24 @@
             </div>
         </div>
         <!-- Picture slider for photographer photos-->
-        <div id="" class=" carousel slide carousel-fade offset-md-3 col-md-6 mt-4 mb-2" data-bs-ride="carousel">
-            <div class="text-white border border-3 border-white">
-            <div class="carousel-inner col-md-8">
-              <div class="carousel-item active weddingPicures">
-                <img src="images/lake.jpg" class="d-block " alt="...">
+        <div id="weddingSlider" class=" row d-flex justify-content-center" data-bs-ride="carousel">
+            <div class="carousel slide carousel-fade  mt-4 mb-2 weddingPictures ">
+            <div class="text-white border border-3 border-white" >
+            <div class="carousel-inner col-md-8 justify-content-center">
+              <div class="carousel-item active weddingPicures ">
+                <img src="images/Slider/Jessica&Joe-50.jpg" class="d-block" alt="...">
               </div>
               <div class="carousel-item weddingPicures">
-                <img src="images/grey-leaves.jpg" class="d-block " alt="...">
+                <img src="images/Slider/Jessica&Joe-44.jpg" class="d-block " alt="...">
               </div>
               <div class="carousel-item weddingPicures">
-                <img src="images/hills.jpg" class="d-block " alt="...">
+                <img src="images/Slider/Jessica&Joe-65.jpg" class="d-block " alt="...">
+              </div>
+              <div class="carousel-item weddingPicures">
+                <img src="images/Slider/Jessica&Joe-125.jpg" class="d-block " alt="...">
+              </div>
+              <div class="carousel-item weddingPicures">
+                <img src="images/Slider/Jessica&Joe-145.jpg" class="d-block " alt="...">
               </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#weddingSlider" data-bs-slide="prev">
@@ -232,6 +274,10 @@
               <span class="visually-hidden">Next</span>
             </button>
             </div>
+        </div>
+          </div>
+          <div class="d-flex justify-content-center">
+              <h2 > <a href="gallery.html" class="text-white text-decoration-none"> View more photos in the Gallery</a></h2>
           </div>
 
           <!-- Our Story and how we came to be  -->
@@ -247,7 +293,7 @@
                         <p>After nearly 10 years of being together and experiencing the ups and downs of going through a 
                             relationship: graduating high school, college, first jobs and apartments, moving to a different state,
                              moving BACK, buying a first home and our biggest test yet - getting a dog 
-                             <a id="yosh" href="#" data-bs-toggle="modal" data-bs-target="#yoshModal" class="text-white">(see Yoshi)</a>
+                             <a id="yosh" href="images/yosh.jpeg" data-lightbox="yosh" class="text-white">(see Yoshi)</a>
                              we decided it was time to seal the deal. </p>
                         <br>                      
                         <p>As neither of us are big on being in the spotlight, we always knew we would likely elope
@@ -257,23 +303,10 @@
                               but I really think we should evaluate this) </p>
                         <br>
                         <p>In the interest of not being totally hated by family and friends for not involving 
-                            them in our day we had some pictures taken to capture to commemorate it..</p>
+                            them in our day we had some pictures taken to capture and commemorate it.</p>
                 </div>
             </div>
         </div>
-<!-- Modal -->
-<div class="modal fade" id="yoshModal" tabindex="-1" aria-labelledby="yoshModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <img src="images/leaves.jpg" style="width: 400px; height: 400px;">
-        </div>
-      </div>
-    </div>
-  </div>
 
         
 
@@ -283,17 +316,18 @@
             <div id="FAQ" class=" p-4 offset-md-2 col-md-8 mt-4 border border-3 border-white">
                 <div class="m-4 text-white">
                     <h1 class="text-center">F.A.Q</h1>
-                    <p>Q: Are you changing your name?</p>
-                    <p>A: Nope! for a few reasons: <br>
+                    <p> <span class="Q"> Q: Are you changing your name?</span>  <br>
+                         A: Nope! for a few reasons: <br>
                            <span class="ms-3"> 1. That would require additional paperwork - yuck <br>
                             <span class="ms-3">2. Sinatra is cool as heck already </span><br>
                             <span class="ms-3">3. He's a Gor-man for life</span></p>
                     
-                    <p>Q: Are you going to register anywhere?</p>
-                    <p>A: Nope! We already have more kitchen gadgets than anyone should. <br> If you want to send us something you (probably) have our address! </p>
                     
-                    <p>Q: Is there a reception?</p>
-                    <p>A: Maybe some day, we'll get back to you on that one </p>
+                    <p><span class="Q">Q: Are you going to register anywhere?</span> <br>
+                        A: Nope! We already have more kitchen gadgets than anyone should. <br> If you want to send us something you (probably) have our address!</p>
+                    
+                    <p><span class="Q">Q: Is there a reception? </span><br>
+                        A: Maybe some day, we'll get back to you on that one</p>
                 </div>
             </div>
         </div>
@@ -335,7 +369,7 @@
     </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-
+<script src="lightbox2-2.11.3/dist/js/lightbox-plus-jquery.min.js"></script>
     <script type="text/javascript">
 
         //Set up local session storage
