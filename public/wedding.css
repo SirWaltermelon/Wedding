@@ -1,0 +1,112 @@
+
+        #header {
+            width: 2000px;
+            height: 250px; 
+            position:absolute
+
+        }
+        #title {
+            background-image: url("images/Title/Jessica&Joe-59.jpg");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            height: 60%;
+        }
+        body {
+            background-color: white;
+            background-image: url("images/Background-green.jpg");
+            padding: 0;
+            margin: 0;
+        }
+        p, h3 {
+            font-family: 'PT Sans Narrow', sans-serif;
+            font-size: 24px;
+        }
+        .navfont {
+            font-family: 'PT Sans Narrow', sans-serif;
+        }
+        h1, h2 {
+            font-family: 'Allura', cursive;
+            font-size: 48px;
+        }
+
+        .sample {
+            height: 500px;
+        }
+        #coverPage {
+            background-color: rgba(255,255,255,0.3);
+            position: relative;
+            padding: 0;
+            margin: 0;
+        }
+        #pageContent {
+            height: 1000px;
+        
+        }
+        #musicButton {
+            background-color: white;
+            width: 100px;
+            height: 50px;
+             
+        }
+        .hide {
+            display: none;
+        }
+        .about  {
+            position: relative;
+            
+        }
+        .background {
+            background-color: rgba(245, 245, 245, 0.301);
+        }
+        .navtext {
+            text-decoration: none;
+            color: black;
+            font-size: large;
+            font-weight: bold;
+
+        }
+        .center{
+            position: relative;
+            
+            left: -50px;
+        }
+
+        .box{
+            width: 18px;
+            height: 18px;
+            box-sizing: border-box;
+            border-style: solid;
+            border-width: 15px 0px 15px 25px;
+            border-color: transparent transparent transparent black;
+            transition: all 100ms ease-in-out;
+        }
+
+        .pause{
+            height: 25px;
+            border-style: double;
+            border-width:0px 0px 0px 20px;
+        }
+        .borders {
+            border:white;
+            border-width: 5px;
+        }
+        .Q {
+            font-weight: bolder;
+        }
+        .weddingPictures {
+            width: 558px;
+            object-fit: contain;
+        }
+        #bride {
+            background-image: url("images/B-G/Jessica&Joe-84.jpg");
+            background-blend-mode: lighten;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        #groom {
+            background-image: url("images/B-G/Jessica&Joe-253.jpg");
+            background-blend-mode: lighten;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    
